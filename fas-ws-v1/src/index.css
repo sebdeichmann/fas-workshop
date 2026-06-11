@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sebastian Deichmann — calm, minimal, soft teal palette */
+
+@layer base {
+  :root {
+    /* Warm off-white paper */
+    --background: 36 30% 98%;
+    --foreground: 200 30% 18%;
+
+    --card: 36 30% 98%;
+    --card-foreground: 200 30% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 30% 18%;
+
+    /* Deep teal from logo */
+    --primary: 196 55% 28%;
+    --primary-foreground: 36 30% 98%;
+
+    /* Soft light teal from logo wordmark */
+    --secondary: 198 40% 88%;
+    --secondary-foreground: 196 55% 28%;
+
+    --muted: 36 20% 94%;
+    --muted-foreground: 200 15% 42%;
+
+    --accent: 198 45% 65%;
+    --accent-foreground: 196 55% 18%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 196 55% 38%;
+
+    --radius: 0.25rem;
+
+    /* Brand tokens */
+    --ink: 200 35% 15%;
+    --ink-soft: 200 20% 35%;
+    --paper: 36 30% 98%;
+    --paper-warm: 36 35% 95%;
+    --teal-deep: 196 55% 28%;
+    --teal-mid: 198 50% 50%;
+    --teal-soft: 198 45% 70%;
+    --teal-wash: 198 40% 92%;
+
+    --gradient-soft: linear-gradient(180deg, hsl(var(--paper)) 0%, hsl(var(--teal-wash)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(36 35% 96%) 0%, hsl(198 40% 94%) 100%);
+
+    --shadow-soft: 0 1px 2px hsl(200 30% 20% / 0.04), 0 8px 24px -12px hsl(200 30% 20% / 0.08);
+    --shadow-card: 0 1px 3px hsl(200 30% 20% / 0.05), 0 12px 40px -16px hsl(196 55% 28% / 0.12);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer utilities {
+  .text-ink { color: hsl(var(--ink)); }
+  .text-ink-soft { color: hsl(var(--ink-soft)); }
+  .bg-paper-warm { background-color: hsl(var(--paper-warm)); }
+  .bg-teal-wash { background-color: hsl(var(--teal-wash)); }
+  .text-teal-deep { color: hsl(var(--teal-deep)); }
+  .text-teal-mid { color: hsl(var(--teal-mid)); }
+  .border-teal-soft { border-color: hsl(var(--teal-soft)); }
+  .bg-gradient-soft { background: var(--gradient-soft); }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+
+  .fade-in-up {
+    animation: fadeInUp 0.9s var(--transition-smooth) both;
+  }
+  .fade-in {
+    animation: fadeIn 1.2s ease-out both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
